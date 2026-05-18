@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cybersecurity Consultancy | Automotive Security Experts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg-main: #060b18;
+            --bg-surface: #0f172a;
+            --bg-surface-lit: #1e293b;
+            --primary: #22d3ee;
+            --primary-dim: rgba(34, 211, 238, 0.1);
+            --secondary: #818cf8;
+            --accent: #f472b6;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: rgba(255, 255, 255, 0.08);
+            --max-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Utilities */
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 100px 0;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, var(--text-main), var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin-bottom: 60px;
+        }
+
+        .highlight {
+            color: var(--primary);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--primary-dim);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+
+        /* Tech Grid Backdrop */
+        .cyber-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px), 
+                linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Header Navigation */
+        header {
+            background: rgba(6, 11, 24, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn-contact {
+            background: var(--primary);
+            color: var(--bg-main);
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-contact:hover {
+            opacity: 0.9;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 30%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            line-height: 1.1;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--bg-main);
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Lifecycle Section */
+        .lifecycle-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 1024px) {
+            .lifecycle-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 640px) {
+            .lifecycle-grid { grid-template-columns: 1fr; }
+        }
+
+        .lifecycle-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            transition: border-color 0.3s ease;
+        }
+
+        .lifecycle-card:hover {
+            border-color: var(--primary);
+        }
+
+        .lifecycle-phase {
+            font-size: 0.75rem;
+            color: var(--secondary);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .lifecycle-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .lifecycle-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+        }
+
+        .lifecycle-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Roadmap Section */
+        .roadmap-timeline {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        @media (max-width: 768px) {
+            .roadmap-timeline { grid-template-columns: 1fr; }
+        }
+
+        .roadmap-node {
+            background: var(--bg-surface);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            padding: 40px;
+            position: relative;
+        }
+
+        .roadmap-node::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 40px;
+            width: 4px;
+            height: 100%;
+            background: var(--border);
+            z-index: 0;
+            display: none; /* Can activate or structuralize line design */
+        }
+
+        .node-step {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .roadmap-node h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .roadmap-node h3 i {
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        /* Inner Content Tables / Bullets inside Deep dive */
+        .node-details {
+            list-style: none;
+            margin-top: 16px;
+        }
+
+        .node-details li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .node-details li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Custom Table Style for TARA Matrix */
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .matrix-table th, .matrix-table td {
+            padding: 10px 14px;
+            font-size: 0.85rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .matrix-table th {
+            background: rgba(255,255,255,0.03);
+            color: var(--text-main);
+        }
+
+        /* Contact Section */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
+        }
+
+        .contact-info-box {
+            background: linear-gradient(135deg, var(--bg-surface) 0%, rgba(15, 23, 42, 0.4) 100%);
+            border: 1px solid var(--border);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .contact-method:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-dim);
+            border: 1px solid var(--primary);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .contact-text p {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .contact-text a {
+            color: var(--text-main);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-text a:hover {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            background: #030712;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">The Cybersecurity <span>Consultancy</span></a>
+            <ul class="nav-links">
+                <li><a href="#lifecycle">Lifecycle</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="btn-contact">Get in Touch</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="section hero">
+        <div class="cyber-grid"></div>
+        <div class="container hero-content">
+            <span class="tag">Automotive Security Architecture</span>
+            <h1>Securing Next-Gen Mobility From Silicon to Cloud</h1>
+            <p>We build resilient, fully standard-compliant cybersecurity frameworks protecting vehicular assets, embedded ECU networks, and manufacturing infrastructures from advanced modern threat surfaces.</p>
+            <div class="hero-cta">
+                <a href="#roadmap" class="btn-primary">View Compliance Roadmap</a>
+                <a href="#lifecycle" class="btn-secondary">Explore Security Lifecycle</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Lifecycle Section -->
+    <section id="lifecycle" class="section">
+        <div class="container">
+            <h2 class="section-title">Automotive Security Lifecycle</h2>
+            <p class="section-subtitle">Our complete paradigm aligns technical vehicle development with persistent end-to-end security tracking across every operational lifecycle stage.</p>
+            
+            <div class="lifecycle-grid">
+                <div class="lifecycle-card">
+                    <span class="lifecycle-phase">Phase 01</span>
+                    <i class="fa-solid fa-compass-drafting"></i>
+                    <h3>Concept Phase</h3>
+                    <p>Establishing proper regulatory CSMS foundations. Defining system scopes, boundary rules, and formal initial item definitions.</p>
+                </div>
+                <div class="lifecycle-card">
+                    <span class="lifecycle-phase">Phase 02</span>
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <h3>Development</h3>
+                    <p>Enforcing rigorous Security by Design logic. Implementing robust microchip layer controls and supply chain interface integrations.</p>
+                </div>
+                <div class="lifecycle-card">
+                    <span class="lifecycle-phase">Phase 03</span>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Production & Ops</h3>
+                    <p>Active fleet surveillance and real-time vulnerability logging. Managed handling via automated tracking systems.</p>
+                </div>
+                <div class="lifecycle-card">
+                    <span class="lifecycle-phase">Phase 04</span>
+                    <i class="fa-solid fa-arrows-spin"></i>
+                    <h3>Post-Production</h3>
+                    <p>Deploying persistent cryptographic OTA software patches and running deep red team simulation assessments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap / Capabilities Deep Dive -->
+    <section id="roadmap" class="section">
+        <div class="cyber-grid"></div>
+        <div class="container">
+            <h2 class="section-title">The Strategic Roadmap to Compliance</h2>
+            <p class="section-subtitle">An exhaustive look at our six architectural vectors deployed to guarantee type approval and secure product lifecycles.</p>
+            
+            <div class="roadmap-timeline">
+                
+                <!-- Step 1 -->
+                <div class="roadmap-node">
+                    <span class="node-step">Step 01</span>
+                    <h3><i class="fa-solid fa-sitemap"></i> Culture & Policy</h3>
+                    <p>Building organizational capability matching strict global baseline requirements.</p>
+                    <ul class="node-details">
+                        <li><strong>ISO 21434 Alignment:</strong> Structural organizational definitions with assigned executive liability profiles.</li>
+                        <li><strong>Interface Agreements (CIA):</strong> Mapping responsibilities down through the Tier-1/Tier-2 supply matrix.</li>
+                        <li><strong>Security Training:</strong> Continuous engineering upskilling across multi-tier product groups.</li>
+                    </ul>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="roadmap-node">
+                    <span class="node-step">Step 02</span>
+                    <h3><i class="fa-solid fa-brain"></i> Risk Intelligence</h3>
+                    <p>Executing continuous Threat Analysis and Risk Assessment to map item configurations.</p>
+                    <ul class="node-details">
+                        <li><strong>Asset Profiling:</strong> Discovering asset parameters requiring core protection rules.</li>
+                        <li><strong>Threat Categorization:</strong> Modeling threat impacts through objective structural testing vectors.</li>
+                    </ul>
+                    <table class="matrix-table">
+                        <thead>
+                            <tr><th>SFOP Matrix</th><th>Objective Target</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Safety (S)</strong></td><td>Occupant Risk Mapping</td></tr>
+                            <tr><td><strong>Financial (F)</strong></td><td>Asset Value Damages</td></tr>
+                            <tr><td><strong>Operational (O)</strong></td><td>Fleet System Downtime</td></tr>
+                            <tr><td><strong>Privacy (P)</strong></td><td>Data Leak Safeguards</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="roadmap-node">
+                    <span class="node-step">Step 03</span>
+                    <h3><i class="fa-solid fa-layer-group"></i> Layered Defense</h3>
+                    <p>Deploying silicon-to-cloud security barriers at the vehicle edge architectural nodes.</p>
+                    <ul class="node-details">
+                        <li><strong>Hardware Trust Anchors:</strong> Leveraging Hardware Security Modules (HSM) for cryptography.</li>
+                        <li><strong>Bus Ingestion Defense:</strong> Enforcing authentications through SecOC mechanisms.</li>
+                        <li><strong>High-Speed Routing:</strong> Protecting multi-channel Automotive Ethernet with TLS 1.3 setups.</li>
+                    </ul>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="roadmap-node">
+                    <span class="node-step">Step 04</span>
+                    <h3><i class="fa-solid fa-vials"></i> Verification & Testing</h3>
+                    <p>Proving technical validation through modern engineering testing mechanisms.</p>
+                    <ul class="node-details">
+                        <li><strong>Protocol Fuzzing:</strong> Flooding edge interfaces (V2X, Wi-Fi) with pseudo-random malformed packets.</li>
+                        <li><strong>Vulnerability Auditing:</strong> Automated static source checks and memory leakage tracking.</li>
+                        <li><strong>Penetration Chaining:</strong> Full physical and remote vehicle capture simulations by expert red teams.</li>
+                    </ul>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="roadmap-node">
+                    <span class="node-step">Step 05</span>
+                    <h3><i class="fa-solid fa-satellite-dish"></i> Lifecycle Operations</h3>
+                    <p>Managing the security posture post-manufacturing to respond to active threats.</p>
+                    <ul class="node-details">
+                        <li><strong>PSIRT Management:</strong> Central tracking centers processing active vulnerability discoveries.</li>
+                        <li><strong>OTA Mitigations:</strong> Deploying securely signed updates to remediate code issues seamlessly.</li>
+                        <li><strong>Continuous Surveillance:</strong> Tracking zero-day exploit scenarios to keep parameters up to date.</li>
+                    </ul>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="roadmap-node">
+                    <span class="node-step">Step 06</span>
+                    <h3><i class="fa-solid fa-file-shield"></i> Type Approval</h3>
+                    <p>Fulfilling regulatory demands to guarantee authorization for market access.</p>
+                    <ul class="node-details">
+                        <li><strong>UN R155/R156:</strong> Complete preparation of technical documentation packages.</li>
+                        <li><strong>Homologation Management:</strong> Direct structural support during authority compliance checks.</li>
+                        <li><strong>Audit Governance:</strong> Maintaining regular compliance updates across continuous product iterations.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div>
+                    <span class="tag">Get In Touch</span>
+                    <h2 class="section-title" style="margin-bottom: 24px;">Let's Secure the Future of Mobility</h2>
+                    <p style="font-size: 1.15rem; color: var(--text-muted); margin-bottom: 32px;">Partner with us to build bulletproof, standard-compliant cybersecurity frameworks. Connect with our engineering and compliance consulting teams directly.</p>
+                </div>
+                
+                <div class="contact-info-box">
+                    <div class="contact-method">
+                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="contact-text">
+                            <h4>Email Consulting</h4>
+                            <p><a href="mailto:akashsubhmishra@gmail.com">akashsubhmishra@gmail.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon"><i class="fa-solid fa-phone-volume"></i></div>
+                        <div class="contact-text">
+                            <h4>Direct Hotline</h4>
+                            <p><a href="tel:7000429830">+91 7000429830</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-icon"><i class="fa-solid fa-building"></i></div>
+                        <div class="contact-text">
+                            <h4>Consultancy Practice</h4>
+                            <p style="font-size: 1.15rem; color: var(--text-muted); font-weight: normal;">Automotive Security Excellence Hub</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 The Cybersecurity Consultancy. All rights reserved. Built for Next-Gen Vehicular Hardening & Compliance.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
