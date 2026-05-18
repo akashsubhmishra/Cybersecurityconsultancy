@@ -103,7 +103,7 @@
             z-index: 0;
         }
 
-        /* Header Navigation */
+        /* Header Navigation Styles */
         header {
             background: rgba(6, 11, 24, 0.8);
             backdrop-filter: blur(12px);
@@ -122,16 +122,49 @@
             height: 80px;
         }
 
-        .logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            color: var(--text-main);
+        /* Brand Brand-Link Layout */
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 14px;
             text-decoration: none;
         }
 
-        .logo span {
+        .logo-box {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(34, 211, 238, 0.03);
+            border: 1px solid rgba(34, 211, 238, 0.2);
+            border-radius: 8px;
+            padding: 5px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 4px rgba(34, 211, 238, 0.4));
+        }
+
+        .brand-link:hover .logo-box {
+            border-color: var(--primary);
+            box-shadow: 0 0 12px rgba(34, 211, 238, 0.25);
+            transform: translateY(-1px);
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.45rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+        }
+
+        .logo-text span {
             color: var(--primary);
         }
 
@@ -324,7 +357,7 @@
             height: 100%;
             background: var(--border);
             z-index: 0;
-            display: none; /* Can activate or structuralize line design */
+            display: none;
         }
 
         .node-step {
@@ -351,7 +384,7 @@
             color: var(--primary);
         }
 
-        /* Inner Content Tables / Bullets inside Deep dive */
+        /* Inner Content Tables */
         .node-details {
             list-style: none;
             margin-top: 16px;
@@ -373,7 +406,6 @@
             font-weight: bold;
         }
 
-        /* Custom Table Style for TARA Matrix */
         .matrix-table {
             width: 100%;
             border-collapse: collapse;
@@ -476,10 +508,14 @@
 </head>
 <body>
 
-    <!-- Header Navigation -->
     <header>
         <div class="container nav-container">
-            <a href="#" class="logo">The Cybersecurity <span>Consultancy</span></a>
+            <a href="#" class="brand-link">
+                <div class="logo-box">
+                    <img src="logo.png" alt="Automotive Cybersecurity Shield Emblem">
+                </div>
+                <div class="logo-text">The Cybersecurity <span>Consultancy</span></div>
+            </a>
             <ul class="nav-links">
                 <li><a href="#lifecycle">Lifecycle</a></li>
                 <li><a href="#roadmap">Roadmap</a></li>
@@ -489,7 +525,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="section hero">
         <div class="cyber-grid"></div>
         <div class="container hero-content">
@@ -503,7 +538,6 @@
         </div>
     </section>
 
-    <!-- Security Lifecycle Section -->
     <section id="lifecycle" class="section">
         <div class="container">
             <h2 class="section-title">Automotive Security Lifecycle</h2>
@@ -538,7 +572,6 @@
         </div>
     </section>
 
-    <!-- Roadmap / Capabilities Deep Dive -->
     <section id="roadmap" class="section">
         <div class="cyber-grid"></div>
         <div class="container">
@@ -547,7 +580,6 @@
             
             <div class="roadmap-timeline">
                 
-                <!-- Step 1 -->
                 <div class="roadmap-node">
                     <span class="node-step">Step 01</span>
                     <h3><i class="fa-solid fa-sitemap"></i> Culture & Policy</h3>
@@ -559,7 +591,6 @@
                     </ul>
                 </div>
 
-                <!-- Step 2 -->
                 <div class="roadmap-node">
                     <span class="node-step">Step 02</span>
                     <h3><i class="fa-solid fa-brain"></i> Risk Intelligence</h3>
@@ -581,7 +612,6 @@
                     </table>
                 </div>
 
-                <!-- Step 3 -->
                 <div class="roadmap-node">
                     <span class="node-step">Step 03</span>
                     <h3><i class="fa-solid fa-layer-group"></i> Layered Defense</h3>
@@ -593,7 +623,6 @@
                     </ul>
                 </div>
 
-                <!-- Step 4 -->
                 <div class="roadmap-node">
                     <span class="node-step">Step 04</span>
                     <h3><i class="fa-solid fa-vials"></i> Verification & Testing</h3>
@@ -605,7 +634,6 @@
                     </ul>
                 </div>
 
-                <!-- Step 5 -->
                 <div class="roadmap-node">
                     <span class="node-step">Step 05</span>
                     <h3><i class="fa-solid fa-satellite-dish"></i> Lifecycle Operations</h3>
@@ -617,7 +645,6 @@
                     </ul>
                 </div>
 
-                <!-- Step 6 -->
                 <div class="roadmap-node">
                     <span class="node-step">Step 06</span>
                     <h3><i class="fa-solid fa-file-shield"></i> Type Approval</h3>
@@ -633,7 +660,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
             <div class="contact-wrapper">
@@ -648,7 +674,7 @@
                         <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
                         <div class="contact-text">
                             <h4>Email Consulting</h4>
-                            <p><a href="mailto:thecybersecurityconsultancy@gmail.com">thecybersecurityconsultancy@gmail.com</a></p>
+                            <p><a href="mailto:akashsubhmishra@gmail.com">akashsubhmishra@gmail.com</a></p>
                         </div>
                     </div>
                     
@@ -672,7 +698,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2026 The Cybersecurity Consultancy. All rights reserved. Built for Next-Gen Vehicular Hardening & Compliance.</p>
